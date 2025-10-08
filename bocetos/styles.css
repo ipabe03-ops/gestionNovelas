@@ -77,7 +77,7 @@ main {
 }
 
 /* Tabla */
-.table-wrapper {
+.contenido-tabla {
     overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
 }
 
