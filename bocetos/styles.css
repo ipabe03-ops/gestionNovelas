@@ -115,6 +115,31 @@ th {
     text-transform: uppercase;     /* Letras mayúsculas */
 }
 
+/* Botón Añadir Nuevo Libro */
+.btn-AddLibro {
+     margin: 2vh 0 0 4vh;                     /* Espacio arriba y abajo */
+    background-color: var(--header-bg);       /* Mismo fondo que el header para coherencia */
+    color: var(--neon-color);                 /* Color tipo neón */
+    border: 0.15rem solid var(--neon-color);  /* Borde neón */
+    border-radius: 0.6rem;                    /* Bordes redondeados */
+    padding: 0.8rem 1.5rem;                   /* Espaciado interno */
+    font-size: 0.7rem;                        /* Tamaño del texto */
+    cursor: pointer;                          /* Cursor de mano */
+    text-transform: uppercase;                /* Texto en mayúsculas */
+    letter-spacing: 0.05rem;                  /* Espaciado entre letras */
+    font-weight: bold;                        /* Texto destacado */
+    transition: 0.3s;                         /* Transición suave */
+    box-shadow: 0 0 0.5rem var(--neon-color); /* Efecto neón leve */
+}
+
+/* Efecto hover */
+.btn-AddLibro:hover {
+    background-color: var(--neon-color);      /* Fondo se ilumina */
+    color: var(--inputTx-hover);              /* Texto oscuro al hacer hover */
+    box-shadow: 0 0 1rem var(--neon-color);   /* Aumenta el brillo */
+    transform: scale(1.05);                   /* Ligero zoom */
+}
+
 /* Media Queries para diseño responsive */
 @media (max-width: 768px) {
     header h1 {
@@ -136,5 +161,15 @@ th {
     th, td {
         padding: 0.5vh 0.5vw;     /* Menos padding en pantallas pequeñas */
         font-size: 0.8rem;        /* Fuente más pequeña */
+    }
+}
+
+/* Versión responsive (móviles) */
+@media (max-width: 480px) {
+    .btn-AddLibro {
+        width: 100%;              /* Que ocupe todo el ancho en móviles */
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.7rem;
     }
 }

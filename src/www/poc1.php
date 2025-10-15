@@ -6,8 +6,8 @@ include 'configuracion.php';
 $sql = "
     SELECT 
         n.titulo AS 'Título',
-        a.nombreAutor AS 'Autor',
-        e.nombreEditorial AS 'Editorial',
+        a.nombre AS 'Autor',
+        e.nombre AS 'Editorial',
         n.fechaPublicacion AS 'Año de publicación'
     FROM Novela n
     INNER JOIN Autor a ON n.id_autor = a.id_autor
@@ -50,8 +50,9 @@ $resultado = $conexion->query($sql);
                 echo "<td>" . $fila['Año de publicación'] . "</td>";
                 echo "</tr>";
             }
-
+            
             echo "</tbody></table>";
+            
         } else {
             echo "<p style='text-align:center;'>No hay resultados en la base de datos.</p>";
         }
@@ -60,6 +61,7 @@ $resultado = $conexion->query($sql);
         ?>
     </div>
 </main>
+<button class='btn-AddLibro'>Añadir nuevo libro</button>
 
 </body>
 </html>
