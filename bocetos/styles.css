@@ -89,6 +89,7 @@ table {
     background-color: var(--tabla-bg); /* Fondo de la tabla */
     border-radius: 0.76rem;        /* Bordes redondeados */
     overflow: hidden;              /* Evita que contenido sobresalga de bordes */
+    margin-bottom: 1vh;           /* Espacio inferior */
 }
 
 thead {
@@ -117,7 +118,7 @@ th {
 
 /* Botón Añadir Nuevo Libro */
 .btn-AddLibro {
-     margin: 2vh 0 0 4vh;                     /* Espacio arriba y abajo */
+     margin: 0 0 0 4vh;                     /*Espacio arriba y abajo */
     background-color: var(--header-bg);       /* Mismo fondo que el header para coherencia */
     color: var(--neon-color);                 /* Color tipo neón */
     border: 0.15rem solid var(--neon-color);  /* Borde neón */
@@ -130,6 +131,7 @@ th {
     font-weight: bold;                        /* Texto destacado */
     transition: 0.3s;                         /* Transición suave */
     box-shadow: 0 0 0.5rem var(--neon-color); /* Efecto neón leve */
+    text-decoration: none;                    /* Sin subrayado (para enlaces) */
 }
 
 /* Efecto hover */
@@ -137,7 +139,7 @@ th {
     background-color: var(--neon-color);      /* Fondo se ilumina */
     color: var(--inputTx-hover);              /* Texto oscuro al hacer hover */
     box-shadow: 0 0 1rem var(--neon-color);   /* Aumenta el brillo */
-    transform: scale(1.05);                   /* Ligero zoom */
+   
 }
 
 /* Media Queries para diseño responsive */
@@ -171,5 +173,101 @@ th {
         text-align: center;
         font-size: 0.9rem;
         padding: 0.7rem;
+    }
+}
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* Estilos del formulario de Alta de libros */
+
+
+.formulario-nuevo-libro {
+    max-width: 40rem;
+    margin: 4vh auto;
+    padding: 2rem;
+    background-color: var(--tabla-bg);
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1rem rgba(0, 255, 255, 0.3);
+}
+
+fieldset {
+    border: 0.15rem solid var(--neon-color);
+    border-radius: 0.6rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    color: var(--neon-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 0.5rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    color: var(--texto);
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+input:focus {
+    outline: 0.2rem solid var(--neon-color);
+    box-shadow: 0 0 0.5rem var(--neon-color);
+}
+
+/* Contenedor de botones */
+.acciones-formulario {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Botones */
+.acciones-formulario button,
+.acciones-formulario a {
+    flex: 1;
+    text-align: center;
+    background-color: var(--header-bg);
+    color: var(--neon-color);
+    border: 0.15rem solid var(--neon-color);
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 0.5rem var(--neon-color);
+    transition: 0.3s;
+}
+
+/* Hover efectos */
+.acciones-formulario button:hover,
+.acciones-formulario a:hover {
+    background-color: var(--neon-color);
+    color: var(--inputTx-hover);
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem var(--neon-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .formulario-nuevo-libro {
+        padding: 1rem;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
     }
 }
