@@ -25,5 +25,6 @@ CREATE TABLE Novela (
     FOREIGN KEY (id_editorial) REFERENCES Editorial(id_editorial) 
 );
 
-
+CREATE USER 'novelas_user'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON gestion_novelas.* TO 'novelas_user'@'localhost';
 
