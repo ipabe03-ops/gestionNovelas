@@ -118,8 +118,8 @@ th {
 
 /* Botón Añadir Nuevo Libro */
 .btn-AddLibro {
-     margin: 0 0 0 4vh;                     /*Espacio arriba y abajo */
-    background-color: var(--header-bg);       /* Mismo fondo que el header para coherencia */
+     margin: 1vh 0 0 6vh;                /* 1vh arriba, 0 abajo, 6vh a la izquierda */
+    background-color: var(--header-b);       /* Mismo fondo que el header para coherencia */
     color: var(--neon-color);                 /* Color tipo neón */
     border: 0.15rem solid var(--neon-color);  /* Borde neón */
     border-radius: 0.6rem;                    /* Bordes redondeados */
@@ -132,6 +132,7 @@ th {
     transition: 0.3s;                         /* Transición suave */
     box-shadow: 0 0 0.5rem var(--neon-color); /* Efecto neón leve */
     text-decoration: none;                    /* Sin subrayado (para enlaces) */
+    display: inline-block;                  /* Para que margin funcione correctamente en enlaces */
 }
 
 /* Efecto hover */
@@ -182,7 +183,7 @@ th {
 /* Estilos del formulario de Alta de libros */
 
 
-.formulario-nuevo-libro {
+.formularioAltaLibro {
     max-width: 40rem;
     margin: 4vh auto;
     padding: 2rem;
@@ -218,10 +219,28 @@ input {
     border: none;
     border-radius: 0.4rem;
     background-color: var(--input-bg);
-    color: var(--input-text);
+    color: grey;
 }
 
 input:focus {
+    outline: 0.2rem solid var(--neon-color);
+    box-shadow: 0 0 0.5rem var(--neon-color);
+}
+
+select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--input-bg);
+    color: grey;
+    font-size: 1rem;
+    appearance: none;           /* Quita estilo por defecto del navegador */
+   
+}
+
+select:focus {
     outline: 0.2rem solid var(--neon-color);
     box-shadow: 0 0 0.5rem var(--neon-color);
 }
