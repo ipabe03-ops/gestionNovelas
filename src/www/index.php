@@ -1,8 +1,8 @@
 <?php
-// Incluir la configuración de conexión.
+// Incluir la configuración de conexión a la base de datos.
 require_once 'configuracion.php';
 
-// Consulta SQL para obtener las novelas con sus autores y editoriales.
+// Consulta SQL para obtener novelas con autores y editoriales.
 $sql = "
     SELECT 
         n.titulo AS 'Título',
@@ -14,54 +14,65 @@ $sql = "
     INNER JOIN Editorial e ON n.id_editorial = e.id_editorial
 ";
 
-$resultado = $conexion->query($sql); // Ejecutamos la consulta y guardamos el resultado en $resultado.
+// Ejecutamos la consulta.
+$resultado = $conexion->query($sql);
 ?>
-<!-- Comenzamos a crear la estructura HTML -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Novelas</title>
-    <link rel="stylesheet" href="\gestionNovelas\bocetos\styles.css"> <!-- Enlace al archivo CSS del estilo -->
+    <link rel="stylesheet" href="\gestionNovelas\bocetos\styles.css"> <!-- Enlace al CSS. -->
 </head>
 <body>
 
 <header>
     <h1>Listado de Novelas de Ciencia Ficción</h1>
 </header>
-<!-- Contenido principal donde se mostrará la tabla de novelas -->
+
 <main>
     <div class="contenido-tabla">
-        <?php if ($resultado && $resultado->num_rows > 0): ?> <!-- Verificamos si hay resultados devueltos y que filas -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Autor</th>
-                        <th>Editorial</th>
-                        <th>Año de publicación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($fila = $resultado->fetch_assoc()): ?> <!-- Iteramos sobre cada fila del resultado devolviendo un array asociativo donde las claves son los nombres de los alias definidos en la consulta sql anterior -->
-                        <tr>
-                            <td><?= $fila['Título'] ?></td>
-                            <td><?= $fila['Autor']?></td>
-                            <td><?= $fila['Editorial']?></td>
-                            <td><?= $fila['Año de publicación']?></td>
-                        </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p style='text-align:center;'>No hay resultados en la base de datos.</p> <!-- Si no hay resultados sale este mensaje -->
-        <?php endif; ?>
-        <?php $conexion->close(); ?>
-    </div>
+        <?php 
+        // Comprobamos si hay resultados.
+        if ($resultado && $resultado->num_rows > 0) { 
+    // Abrimos la tabla.
+    echo "<table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Año de publicación</th>
+                </tr>
+            </thead>
+            <tbody>";
 
+    // Recorremos cada fila de resultados.
+    while ($fila = $resultado->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $fila['Título'] . "</td>";
+        echo "<td>" . $fila['Autor'] . "</td>";
+        echo "<td>" . $fila['Editorial'] . "</td>";
+        echo "<td>" . $fila['Año de publicación'] . "</td>";
+        echo "</tr>";
+    }
+
+        // Cerramos tbody y table.
+        echo "</tbody>
+        </table>";
+        
+    } else {
+        echo "<p style='text-align:center;'>No hay resultados en la base de datos.</p>";
+    }
+
+
+?>
+    </div>
 </main>
 
-<a href="libro_alta.php" class="btn-AddLibro">Añadir nuevo libro</a> <!-- Botón para añadir un nuevo libro -->
+<!-- Botón para añadir un nuevo libro. -->
+<a href="libro_alta.php" class="btn-AddLibro">Añadir nuevo libro</a>
 
 </body>
 </html>
