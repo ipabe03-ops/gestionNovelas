@@ -25,6 +25,11 @@ CREATE TABLE Novela (
     FOREIGN KEY (id_editorial) REFERENCES Editorial(id_editorial) 
 );
 
+-- Creamos un usuario específico para gestionar la base de datos gestion_novelas.
 CREATE USER 'novelas_user'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON gestion_novelas.* TO 'novelas_user'@'localhost';
+
+-- Reiniciamos los contadores AUTO_INCREMENT de las tablas.
+ALTER TABLE Novela AUTO_INCREMENT = 4;
+
 

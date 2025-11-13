@@ -23,7 +23,8 @@ $resultado = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Gestión de Novelas</title>
-    <link rel="stylesheet" href="\gestionNovelas\bocetos\styles.css"> <!-- Enlace al CSS. -->
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Enlace al CSS. -->
+<!-- Enlace al CSS. -->
 </head>
 <body>
 

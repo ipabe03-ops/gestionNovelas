@@ -24,7 +24,7 @@ $resultado = $conexion->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Prueba de Concepto - gestionNovelas</title>
-    <link rel="stylesheet" href="\gestionNovelas\bocetos\styles.css"> 
+    <link rel="stylesheet" href="./css/styles.css"> 
 </head>
 <body>
 

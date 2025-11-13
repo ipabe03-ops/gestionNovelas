@@ -1,0 +1,292 @@
+/* Estilos de la tabla de novelas y el buscador */
+
+/* RESET / Normalización */
+/* Se aplica a todos los elementos (*) para que el box-model incluya el padding y el border en el ancho y alto, y eliminamos márgenes y padding por defecto de los navegadores */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables de color */
+/* Definimos colores en variables CSS para poder reutilizarlos y cambiarlos fácilmente */
+:root {
+    --fondo: #1a1a2e;        /* Fondo general de la página */
+    --texto: #e0e0e0;        /* Color del texto principal */
+    --header-bg: #162447;    /* Fondo del encabezado */
+    --tabla-bg: #1f4068;     /* Fondo de la tabla */
+    --fila-bg: #162447;      /* Fondo de filas alternas */
+    --fila-hover: #b6e9f9;   /* Color de fila al pasar el cursor */
+    --input-bg: #0f3460;     /* Fondo del input de búsqueda */
+    --input-text: #e0e0e0;   /* Color del texto del input */
+    --inputTx-hover:#000000; /* Color del texto al pasar el cursor   */
+    --neon-color: #0ffff8;   /* Color principal tipo neón */
+    --neon-colorh1: #e6eff6; /* Color del h1 */
+}
+
+/* Tipografía */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente principal */
+    font-size: 1rem;                  /* Tamaño base relativo */
+    line-height: 1.5;                 /* Altura de línea para mejorar legibilidad */
+    background-color: var(--fondo);   /* Fondo de la página */
+    color: var(--texto);              /* Color de texto general */
+}
+
+/* Header */
+header {
+    background-color: var(--header-bg);             /* Fondo del header */
+    text-align: center;                             /* Centrar contenido */
+    padding: 2vh 1vw;                               /* Espaciado vertical y horizontal relativo */
+    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.5);      /* Sombra suave debajo del header */
+}
+
+header h1 {
+    color: var(--neon-colorh1);                     /* Color del título h1 */
+    font-size: 2rem;                                /* Tamaño del título */
+    text-shadow: 0 0 0.5vw var(--neon-color);      /* Efecto de neón suave alrededor del texto */
+}
+
+/* Main */
+main {
+    padding: 2vh 2vw;               /* Espaciado interno relativo */
+    display: flex;                  /* Flexbox para diseño flexible */
+    flex-direction: column;         /* Elementos en columna */
+    gap: 2vh;                        /* Espacio entre elementos hijos */
+}
+
+/* Buscador */
+.buscador {
+    display: flex;                  /* Flexbox para centrar el input */
+    justify-content: center;        /* Centrado horizontal */
+}
+
+#buscar {
+    width: 80%;                     /* Ancho relativo */
+    max-width: 40rem;               /* Máximo ancho para pantallas grandes */
+    padding: 1vh 1vw;               /* Espaciado interno relativo */
+    border-radius: 0.5rem;          /* Bordes redondeados */
+    border: none;                   /* Sin borde */
+    background-color: var(--input-bg); /* Fondo del input */
+    color: var(--input-text);       /* Color del texto */
+    font-size: 1rem;                /* Tamaño del texto */
+}
+
+#buscar:focus {
+    outline: 0.3vw solid var(--neon-color); /* Borde tipo neón al hacer foco */
+}
+
+/* Tabla */
+.contenido-tabla {
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+}
+
+table {
+    width: 100%;                   /* Ancho completo del contenedor */
+    border-collapse: separate;     /* Necesario para que border-radius funcione */
+    border-spacing: 0;             /* Sin espacio entre celdas */
+    min-width: 20rem;              /* Ancho mínimo de la tabla */
+    background-color: var(--tabla-bg); /* Fondo de la tabla */
+    border-radius: 0.76rem;        /* Bordes redondeados */
+    overflow: hidden;              /* Evita que contenido sobresalga de bordes */
+    margin-bottom: 1vh;           /* Espacio inferior */
+}
+
+thead {
+    background-color: var(--fila-bg); /* Fondo de las cabeceras */
+}
+
+th, td {
+    padding: 1vh 1vw;             /* Espaciado interno relativo */
+    text-align: left;             /* Alineación de texto */
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--fila-bg); /* Color de filas pares */
+}
+
+tbody tr:hover {
+    background-color: var(--fila-hover); /* Cambio de color al pasar el cursor */
+    color: var(--inputTx-hover);           /* Texto negro al hacer hover */
+    transition: 0.3s;                     /* Transición suave de colores */
+}
+
+th {
+    color: var(--neon-color);      /* Color tipo neón para encabezados */
+    text-transform: uppercase;     /* Letras mayúsculas */
+}
+
+/* Botón Añadir Nuevo Libro */
+.btn-AddLibro {
+     margin: 1vh 0 0 6vh;                /* 1vh arriba, 0 abajo, 6vh a la izquierda */
+    background-color: var(--header-b);       /* Mismo fondo que el header para coherencia */
+    color: var(--neon-color);                 /* Color tipo neón */
+    border: 0.15rem solid var(--neon-color);  /* Borde neón */
+    border-radius: 0.6rem;                    /* Bordes redondeados */
+    padding: 0.8rem 1.5rem;                   /* Espaciado interno */
+    font-size: 0.7rem;                        /* Tamaño del texto */
+    cursor: pointer;                          /* Cursor de mano */
+    text-transform: uppercase;                /* Texto en mayúsculas */
+    letter-spacing: 0.05rem;                  /* Espaciado entre letras */
+    font-weight: bold;                        /* Texto destacado */
+    transition: 0.3s;                         /* Transición suave */
+    box-shadow: 0 0 0.5rem var(--neon-color); /* Efecto neón leve */
+    text-decoration: none;                    /* Sin subrayado (para enlaces) */
+    display: inline-block;                  /* Para que margin funcione correctamente en enlaces */
+}
+
+/* Efecto hover */
+.btn-AddLibro:hover {
+    background-color: var(--neon-color);      /* Fondo se ilumina */
+    color: var(--inputTx-hover);              /* Texto oscuro al hacer hover */
+    box-shadow: 0 0 1rem var(--neon-color);   /* Aumenta el brillo */
+   
+}
+
+/* Media Queries para diseño responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;        /* Reducir tamaño del título en tablets */
+    }
+    #buscar {
+        width: 95%;                /* Input más ancho en pantallas medianas */
+    }
+    th, td {
+        padding: 0.8vh 0.5vw;     /* Ajuste de padding */
+        font-size: 0.9rem;        /* Ajuste tamaño de texto */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;        /* Reducir título en móviles */
+    }
+    th, td {
+        padding: 0.5vh 0.5vw;     /* Menos padding en pantallas pequeñas */
+        font-size: 0.8rem;        /* Fuente más pequeña */
+    }
+}
+
+/* Versión responsive (móviles) */
+@media (max-width: 480px) {
+    .btn-AddLibro {
+        width: 100%;              /* Que ocupe todo el ancho en móviles */
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+}
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* Estilos del formulario de Alta de libros */
+
+
+.formularioAltaLibro {
+    max-width: 40rem;
+    margin: 4vh auto;
+    padding: 2rem;
+    background-color: var(--tabla-bg);
+    border-radius: 0.8rem;
+    box-shadow: 0 0 1rem rgba(0, 255, 255, 0.3);
+}
+
+fieldset {
+    border: 0.15rem solid var(--neon-color);
+    border-radius: 0.6rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    color: var(--neon-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 0.5rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    color: var(--texto);
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--input-bg);
+    color: grey;
+}
+
+input:focus {
+    outline: 0.2rem solid var(--neon-color);
+    box-shadow: 0 0 0.5rem var(--neon-color);
+}
+
+select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--input-bg);
+    color: grey;
+    font-size: 1rem;
+    appearance: none;           /* Quita estilo por defecto del navegador */
+   
+}
+
+select:focus {
+    outline: 0.2rem solid var(--neon-color);
+    box-shadow: 0 0 0.5rem var(--neon-color);
+}
+
+/* Contenedor de botones */
+.acciones-formulario {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Botones */
+.acciones-formulario button,
+.acciones-formulario a {
+    flex: 1;
+    text-align: center;
+    background-color: var(--header-bg);
+    color: var(--neon-color);
+    border: 0.15rem solid var(--neon-color);
+    border-radius: 0.6rem;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 0.5rem var(--neon-color);
+    transition: 0.3s;
+}
+
+/* Hover efectos */
+.acciones-formulario button:hover,
+.acciones-formulario a:hover {
+    background-color: var(--neon-color);
+    color: var(--inputTx-hover);
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem var(--neon-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .formulario-nuevo-libro {
+        padding: 1rem;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+    }
+}

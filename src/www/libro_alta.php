@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AltaLibros_Gestión_de_Novelas</title>
-    <link rel="stylesheet" href="\gestionNovelas\bocetos\styles.css"> <!-- Enlace al archivo CSS del estilo -->
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Enlace al archivo CSS del estilo -->
 </head>
 <body>
     <header>
