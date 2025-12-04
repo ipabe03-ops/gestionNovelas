@@ -5,6 +5,7 @@ require_once 'configuracion.php';
 // Consulta SQL para obtener novelas con autores y editoriales.
 $sql = "
     SELECT 
+        n.id_novela, 
         n.titulo AS 'Título',
         a.nombre AS 'Autor',
         e.nombre AS 'Editorial',
@@ -16,6 +17,13 @@ $sql = "
 
 // Ejecutamos la consulta.
 $resultado = $conexion->query($sql);
+
+// Iniciamos la sesión en esta página tambien para mostrar el mensaje de eliminación.
+session_start();
+if (isset($_SESSION['mensaje'])) { //Comprobamos si existe el mensaje.
+    echo "<p style='color:red; text-align:center;'>" . $_SESSION['mensaje'] . "</p>";
+    unset($_SESSION['mensaje']); // Lo mostramos en pantalla y lo eliminamos para que no aparezca otra vez.
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +52,7 @@ $resultado = $conexion->query($sql);
                     <th>Autor</th>
                     <th>Editorial</th>
                     <th>Año de publicación</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>";
@@ -55,6 +64,14 @@ $resultado = $conexion->query($sql);
         echo "<td>" . $fila['Autor'] . "</td>";
         echo "<td>" . $fila['Editorial'] . "</td>";
         echo "<td>" . $fila['Año de publicación'] . "</td>";
+
+        // Columna de acciones.
+         echo '<td>
+            <a href="libro_eliminar.php?id=' . $fila['id_novela'] . '" class="btn-Eliminar">Eliminar</a>
+            <a href="libro_modificar.php?id=' . $fila['id_novela'] . '" class="btn-Modificar">Modificar</a>
+          </td>';
+
+
         echo "</tr>";
     }
 

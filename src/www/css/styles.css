@@ -22,6 +22,10 @@
     --inputTx-hover:#000000; /* Color del texto al pasar el cursor   */
     --neon-color: #0ffff8;   /* Color principal tipo neón */
     --neon-colorh1: #e6eff6; /* Color del h1 */
+    --neon-rojo: #ff073a; /* Rojo neón */
+    --neon-verde: #39ff14; /* Verde neón */
+
+
 }
 
 /* Tipografía */
@@ -143,6 +147,64 @@ th {
    
 }
 
+/* Botón de eliminar novelas */
+.btn-Eliminar {
+    display: inline-block !important;       /* Forzar comportamiento de botón */
+    text-align: center;
+    background-color: var(--header-bg);
+    color: var(--neon-rojo);
+    border: 0.1rem solid var(--neon-rojo);
+    border-radius: 0.3rem;
+    padding: 0.7rem 0.5rem !important;    /* Padding pequeño forzado */
+    font-size: 0.74rem !important;          /* Fuente pequeña forzada */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+    text-decoration: none;
+    box-shadow: 0 0 0.2rem var(--neon-rojo);
+    transition: all 0.2s;
+    cursor: pointer;
+    line-height: 1;                                 /* Para que margin funcione en enlaces */
+}
+
+/* Hover efecto del botón eliminar */
+.btn-Eliminar:hover {
+    background-color: var(--neon-rojo);          /* Fondo se ilumina */
+    color: var(--inputTx-hover);                  /* Texto oscuro */
+    box-shadow: 0 0 1rem var(--neon-rojo);      /* Mayor brillo */
+    transform: scale(1.05);                       /* Pequeño zoom */
+}
+
+/* Botón de modificar novelas */
+.btn-Modificar {
+    display: inline-block !important;
+    text-align: center;
+    background-color: var(--header-bg);
+    color: var(--neon-verde);
+    border: 0.1rem solid var(--neon-verde);
+    border-radius: 0.3rem;
+    padding: 0.7rem 0.5rem !important;
+    font-size: 0.74rem !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.02rem;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    box-shadow: 0 0 0.2rem var(--neon-verde);
+    transition: all 0.2s;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-Modificar:hover {
+    background-color: var(--neon-verde);
+    color: var(--inputTx-hover);
+    box-shadow: 0 0 1rem var(--neon-verde);
+    transform: scale(1.05);
+}
+
+
+
 /* Media Queries para diseño responsive */
 @media (max-width: 768px) {
     header h1 {
@@ -155,6 +217,20 @@ th {
         padding: 0.8vh 0.5vw;     /* Ajuste de padding */
         font-size: 0.9rem;        /* Ajuste tamaño de texto */
     }
+
+       .btn-Modificar {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.7rem;
+        margin-right: 0;
+    }
+
+    .btn-Eliminar {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -165,11 +241,8 @@ th {
         padding: 0.5vh 0.5vw;     /* Menos padding en pantallas pequeñas */
         font-size: 0.8rem;        /* Fuente más pequeña */
     }
-}
 
-/* Versión responsive (móviles) */
-@media (max-width: 480px) {
-    .btn-AddLibro {
+     .btn-AddLibro {
         width: 100%;              /* Que ocupe todo el ancho en móviles */
         text-align: center;
         font-size: 0.9rem;

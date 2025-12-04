@@ -18,11 +18,11 @@ CREATE TABLE Editorial (
 CREATE TABLE Novela (
     id_novela INT AUTO_INCREMENT PRIMARY KEY, 
     titulo VARCHAR(150) NOT NULL, 
-    fechaPublicacion INT,
-    id_autor INT, 
-    id_editorial INT, 
+    fechaPublicacion DATE NOT NULL, 
+    id_autor INT NOT NULL,            
+    id_editorial INT NOT NULL,       
     FOREIGN KEY (id_autor) REFERENCES Autor(id_autor), 
-    FOREIGN KEY (id_editorial) REFERENCES Editorial(id_editorial) 
+    FOREIGN KEY (id_editorial) REFERENCES Editorial(id_editorial)
 );
 
 -- Creamos un usuario específico para gestionar la base de datos gestion_novelas.

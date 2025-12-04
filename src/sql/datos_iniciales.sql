@@ -13,8 +13,8 @@ INSERT INTO Editorial (nombre) VALUES
 ('Gnome Press'),
 ('Bantam Books');
 
-INSERT INTO Novela (titulo,  fechaPublicacion, id_autor, id_editorial) VALUES
-('Dune', 1965, 1, 1),      
-('Neuromante', 1984, 2, 1), 
-('Fundación', 1951, 3, 2), 
-('Snow Crash', 1992, 4, 3);
+INSERT INTO Novela (titulo, fechaPublicacion, id_autor, id_editorial) VALUES
+('Dune', '1965-01-01', 1, 1),
+('Neuromante', '1984-01-01', 2, 1),
+('Fundación', '1951-01-01', 3, 2),
+('Snow Crash', '1992-01-01', 4, 3);
