@@ -33,6 +33,13 @@
     // fetch_assoc() convierte la fila en un array.
     $libro = $resultado->fetch_assoc();
 
+    // Obtenemos todos los autores para el desplegable.
+    $autores = $conexion->query("SELECT id_autor, nombre FROM Autor");
+
+    // Obtenemos todas las editoriales para el desplegable.
+    $editoriales = $conexion->query("SELECT id_editorial, nombre FROM Editorial");
+
+
     // Comprobamos si viene un mensaje en la URL (por ejemplo, de error).
     if (isset($_GET['msg'])) {
         // Si viene un mensaje en la URL, lo guardamos.
@@ -75,16 +82,45 @@
                 <legend>Datos del libro</legend>
 
                 <input type="hidden" name="id_novela" value="<?php echo $libro['id_novela']; ?>">
-        
+                
+                <!--  de autores -->
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" value="<?php echo $libro['titulo']; ?>" required>
             
                 <label for="autor">Autor</label>
-                <input type="text" id="autor" name="autor" value="<?php echo $libro['nombre_autor']; ?>" required>
-    
+                <!-- Desplegable de autores -->
+                <select id="autor" name="id_autor" required>
+                    <?php 
+                        while ($autor = $autores->fetch_assoc()) {
+                            echo '<option value="' . $autor['id_autor'] . '"';
+                            if ($autor['id_autor'] == $libro['id_autor']) {
+                                echo ' selected';
+                            }
+                            echo '>';
+                            echo $autor['nombre'];
+                            echo '</option>';
+                        }
+                    ?>
+                </select>
+
+                <!-- Desplegable de editoriales -->
                 <label for="editorial">Editorial</label>
-                <input type="text" id="editorial" name="editorial" value="<?php echo $libro['nombre_editorial']; ?>" required>
-               
+                <select id="editorial" name="id_editorial" required>
+                    <?php 
+                        while ($editorial = $editoriales->fetch_assoc()) {
+                            // Si el id_editorial coincide con el del libro, lo marcamos como seleccionado.
+                            echo '<option value="' . $editorial['id_editorial'] . '"';
+                            if ($editorial['id_editorial'] == $libro['id_editorial']) {
+                                echo ' selected';
+                            }
+                            echo '>';
+                            echo $editorial['nombre'];
+                            echo '</option>';
+                        }
+                    ?>
+                </select>
+
+                
                 <label for="fecha_publicacion">Fecha de publicación</label>
                 <input type="date" id="fecha_publicacion" name="fecha_publicacion" value="<?php echo $libro['fechaPublicacion']; ?>" required>
 
